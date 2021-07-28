@@ -6,5 +6,8 @@ RUN pip install -r requirements.txt
 RUN apt-get update \ 
     && apt-get install -y \
         nmap \
-        vim
+        vim \
+    && DEBIAN_FRONTEND=noninteractive \
+       apt-get install --no-install-recommends --assume-yes \
+       postgresql-client
 COPY . /app/
